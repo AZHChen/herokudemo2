@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+ <div class="login">
+	<h1 style="font-size:20px;">Predict insurance price</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="text" name="age" placeholder="Age" required="required" />
+        <p style="font-size:10px;">What is your gender?</p>
+        <div>
+        <input type="radio" id="sex1" name="sex" value="0">
+        <label for="sex1" style="font-size:8px;">Male</label>
+        <input type="radio" id="sex2" name="sex" value="1">
+        <label for="sex2" style="font-size:8px;">Female</label>
+             </div>
+		<input type="text" name="bmi" placeholder="BMI" required="required" />
+        <input type="text" name="children" placeholder="How many children do you have" required="required" />
+        <p style="font-size:10px;">Do you smoke?</p>
+
+        <input type="radio" id="No" name="smoker" value="0">
+        <label for="No" style="font-size:8px;">No</label>
+        <input type="radio" id="Yes" name="smoker" value="1">
+        <label for="Yes" style="font-size:8px;">Yes</label>
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ <img src="/static/images/Original.svg" style="width: 400px;position: absolute;bottom: 10px;left: 10px;" alt="Company Logo"/>
+
+</body>
+</html>
