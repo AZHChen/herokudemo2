@@ -1,1 +1,3 @@
-web: gunicorn <heroku-demo-11>.wsgi --log-file -
+git add .
+git commit -m "Procfile"
+git push heroku master
